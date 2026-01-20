@@ -6,72 +6,122 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # ================== PAGE CONFIG ==================
 st.set_page_config(
-    page_title="Language Detection App",
-    page_icon="🌍",
+    page_title="Language Detection System",
+    page_icon="🔴",
     layout="centered"
 )
 
-# ================== GLOBAL CSS ==================
+# ================== GLOBAL DARK RED THEME CSS ==================
 st.markdown("""
 <style>
-/* Background */
+
+/* ===== GLOBAL BACKGROUND ===== */
 .stApp {
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    background: radial-gradient(circle at top, #2b0a0a 0%, #050505 60%);
 }
 
 /* Center main container */
 .main > div {
-    max-width: 700px;
+    max-width: 780px;
 }
 
-/* Card container */
+/* ===== CARD CONTAINER ===== */
 .card {
-    background-color: white;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0px 6px 25px rgba(0,0,0,0.12);
-    margin-top: 40px;
+    background: linear-gradient(135deg, #0f0f0f, #1a0a0a);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px rgba(255, 0, 0, 0.25);
+    margin-top: 50px;
+    border: 1px solid rgba(255, 0, 0, 0.15);
 }
 
-/* Title */
+/* ===== TITLE ===== */
 .app-title {
     text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 10px;
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
-/* Subtitle */
+.red-dot {
+    color: #ff3b3b;
+}
+
+/* ===== SUBTITLE ===== */
 .subtitle {
     text-align: center;
-    color: #6c757d;
-    margin-bottom: 25px;
+    color: #c7c7c7;
+    margin-bottom: 35px;
+    font-size: 1rem;
 }
 
-/* Button styling */
+/* ===== LABELS ===== */
+label {
+    color: #f0f0f0 !important;
+    font-weight: 500;
+}
+
+/* ===== TEXT AREA ===== */
+textarea {
+    background-color: #050505 !important;
+    color: #f5f5f5 !important;
+    border-radius: 14px !important;
+    border: 1px solid #3a0f0f !important;
+    font-size: 16px !important;
+}
+
+/* Placeholder */
+textarea::placeholder {
+    color: #9a9a9a !important;
+}
+
+/* ===== BUTTON ===== */
 div.stButton > button {
-    background-color: #4b6cb7;
+    background: linear-gradient(135deg, #ff2d2d, #c00000);
     color: white;
-    border-radius: 10px;
-    height: 3em;
+    border-radius: 12px;
+    height: 3.2em;
     width: 100%;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
+    border: none;
+    transition: all 0.3s ease;
 }
 
-/* Text area */
-textarea {
-    border-radius: 10px !important;
+div.stButton > button:hover {
+    transform: scale(1.04);
+    box-shadow: 0px 0px 25px rgba(255, 45, 45, 0.7);
 }
 
-/* Result box */
+/* ===== RESULT BOX ===== */
 .result-box {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 25px;
+    background: linear-gradient(135deg, #0a0a0a, #140606);
+    padding: 25px;
+    border-radius: 14px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 0, 0, 0.25);
 }
+
+/* Predicted language text in RED */
+.predicted-text {
+    color: #ff3b3b;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* Confidence text */
+.conf-text {
+    color: #dddddd;
+    margin-top: 8px;
+}
+
+/* Progress bar tweak */
+.stProgress > div > div > div {
+    background-color: #ff2d2d;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -91,21 +141,29 @@ def predict_language(text):
     padded = pad_sequences(seq, maxlen=80)
     probs = model.predict(padded, verbose=0)[0]
     class_index = np.argmax(probs)
-    return label_encoder.inverse_transform([class_index])[0], probs[class_index]
+    language = label_encoder.inverse_transform([class_index])[0]
+    confidence = probs[class_index]
+    return language, confidence
 
 # ================== UI LAYOUT ==================
 
 # Card Start
 st.markdown('<div class="card">', unsafe_allow_html=True)
 
-st.markdown('<div class="app-title">🌍 Language Detection System</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Detect the language of any sentence using Machine Learning</div>', unsafe_allow_html=True)
+# Title with red accent dots
+st.markdown(
+    '<div class="app-title">Code<span class="red-dot">.</span> Detect<span class="red-dot">.</span> Language</div>',
+    unsafe_allow_html=True
+)
 
-st.write("")
+st.markdown(
+    "<div class='subtitle'>Detect the language of any sentence using Deep Learning</div>",
+    unsafe_allow_html=True
+)
 
 user_text = st.text_area(
     "✍️ Enter your text below",
-    height=130,
+    height=150,
     placeholder="Example: यह एक अच्छा दिन है | This is a beautiful day | C'est une belle journée"
 )
 
@@ -113,29 +171,38 @@ if st.button("🔍 Detect Language"):
     if user_text.strip() == "":
         st.warning("⚠️ Please enter some text to detect the language.")
     else:
-        with st.spinner("Detecting language..."):
+        with st.spinner("Analyzing language..."):
             language, confidence = predict_language(user_text)
 
         # Result Box
         st.markdown('<div class="result-box">', unsafe_allow_html=True)
-        st.success(f"✅ Predicted Language: **{language}**")
-        st.write(f"📈 Confidence: **{confidence:.3f}**")
 
-        # Confidence progress bar (nice UX touch)
+        st.markdown(
+            f"<div class='predicted-text'>Predicted Language: {language}</div>",
+            unsafe_allow_html=True
+        )
+
+        st.markdown(
+            f"<div class='conf-text'>Confidence: {confidence:.3f}</div>",
+            unsafe_allow_html=True
+        )
+
+        # Progress bar
         st.progress(float(confidence))
+
         st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)  # Card End
+# Card End
+st.markdown('</div>', unsafe_allow_html=True)
 
-# ================== SIDEBAR (UX BOOST) ==================
+# ================== SIDEBAR ==================
 st.sidebar.header("ℹ️ About This App")
 st.sidebar.write("""
 - Built using **TensorFlow & RNN**
 - Supports multiple languages  
+- Dark Red Tech Theme  
 - Deployed on **Streamlit Cloud**  
-- Designed for portfolio showcase  
 """)
 
 st.sidebar.markdown("---")
-st.sidebar.write("👨‍💻 Developer: Kumar Ketan")
-
+st.sidebar.write("👨‍💻 Developer: **Kumar Ketan**")
