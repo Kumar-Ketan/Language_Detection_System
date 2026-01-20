@@ -138,8 +138,8 @@ streamlit run app.py
 ---
 
 ## 👤 Author
-**Harshit Kumar Rai**  
-Java | HTML5, CSS3 | AI & ML Enthusiast  
+**Kumar Ketan**  
+Python |SQL| AI & ML|  
 
 ---
 
@@ -152,7 +152,7 @@ Thanks to open-source datasets and libraries that made this project possible.
 📧 Email: kketan6205@gmail.com  
 🔗 LinkedIn: https://www.linkedin.com/in/kumar-ketan-5456b531b/  
  🐙 GitHub:  https://github.com/Kumar-Ketan  
- 
+
 
 ---
 
