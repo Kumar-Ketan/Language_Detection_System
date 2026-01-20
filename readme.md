@@ -74,7 +74,8 @@ Deploy on cloud (Heroku / Render / HuggingFace Spaces)
 
 ## 👤 Author
 
-**Kumar Ketan**  
+**Kumar Ketan**
+
 Pre-Final Year CS Student  
 Focus: Machine Learning, Deep Learning, DSA  
 
