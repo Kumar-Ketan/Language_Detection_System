@@ -58,7 +58,11 @@ conda activate venv311
 pip install -r requirements.txt
 
 4. Run the Streamlit App
-streamlit run app.py
+streamlit run app.py  
+
+
+---  
+
 
 🧪 Model Details
 Model Type: Recurrent Neural Network (RNN)
@@ -73,23 +77,5 @@ Add batch prediction support
 Deploy on cloud (Heroku / Render / HuggingFace Spaces)
 
 ---
+  
 
-
-
-## 👤 Author
-
-**Kumar Ketan**  
-
-
-B.Tech Graduate  
-
-Python | SQL | AI & ML Enthusiast  
-
-
----
-
-## 🚀 Connect With Me
-
-- 📧 Email: kketan6204@gmail.com  
-- 🔗 LinkedIn: https://www.linkedin.com/in/kumar-ketan-5456b531b/  
-- 🐙 GitHub: https://github.com/Kumar-Ketan  
