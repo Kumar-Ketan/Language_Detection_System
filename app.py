@@ -188,9 +188,10 @@ if st.button("🔍 Detect Language"):
         )
 
         st.markdown(
-            f"<div class='conf-text'>Confidence: {confidence:.3f}</div>",
-            unsafe_allow_html=True
-        )
+    f"<div class='conf-text'>Confidence: {confidence*100:.1f}%</div>",
+    unsafe_allow_html=True
+    )
+
 
         st.progress(float(confidence))
 
