@@ -80,8 +80,11 @@ Deploy on cloud (Heroku / Render / HuggingFace Spaces)
 
 **Kumar Ketan**  
 
+
 B.Tech Graduate  
+
 Python | SQL | AI & ML Enthusiast  
+
 
 ---
 
