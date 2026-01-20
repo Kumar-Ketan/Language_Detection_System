@@ -45,6 +45,7 @@ st.markdown("""
     margin-bottom: 8px;
 }
 
+/* Red dot */
 .red-dot {
     color: #ff3b3b;
 }
@@ -57,10 +58,12 @@ st.markdown("""
     font-size: 1rem;
 }
 
-/* ===== LABELS ===== */
-label {
-    color: #f0f0f0 !important;
-    font-weight: 500;
+/* ===== ENTER TEXT LABEL (BIGGER + RED) ===== */
+.input-label {
+    color: #ff3b3b;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
 /* ===== TEXT AREA ===== */
@@ -107,8 +110,8 @@ div.stButton > button:hover {
 /* Predicted language text in RED */
 .predicted-text {
     color: #ff3b3b;
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 1.6rem;
+    font-weight: 900;
 }
 
 /* Confidence text */
@@ -117,7 +120,7 @@ div.stButton > button:hover {
     margin-top: 8px;
 }
 
-/* Progress bar tweak */
+/* Progress bar color */
 .stProgress > div > div > div {
     background-color: #ff2d2d;
 }
@@ -147,12 +150,11 @@ def predict_language(text):
 
 # ================== UI LAYOUT ==================
 
-# Card Start
 st.markdown('<div class="card">', unsafe_allow_html=True)
 
-# Title with red accent dots
+# Title with red dot after Language
 st.markdown(
-    '<div class="app-title">Code<span class="red-dot">.</span> Detect<span class="red-dot">.</span> Language</div>',
+    '<div class="app-title">Language<span class="red-dot">.</span> Detection System</div>',
     unsafe_allow_html=True
 )
 
@@ -161,8 +163,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Bigger red label
+st.markdown('<div class="input-label"> Enter your text below</div>', unsafe_allow_html=True)
+
 user_text = st.text_area(
-    "✍️ Enter your text below",
+    "",
     height=150,
     placeholder="Example: यह एक अच्छा दिन है | This is a beautiful day | C'est une belle journée"
 )
@@ -174,9 +179,9 @@ if st.button("🔍 Detect Language"):
         with st.spinner("Analyzing language..."):
             language, confidence = predict_language(user_text)
 
-        # Result Box
         st.markdown('<div class="result-box">', unsafe_allow_html=True)
 
+        # Predicted Language in RED
         st.markdown(
             f"<div class='predicted-text'>Predicted Language: {language}</div>",
             unsafe_allow_html=True
@@ -187,12 +192,10 @@ if st.button("🔍 Detect Language"):
             unsafe_allow_html=True
         )
 
-        # Progress bar
         st.progress(float(confidence))
 
         st.markdown('</div>', unsafe_allow_html=True)
 
-# Card End
 st.markdown('</div>', unsafe_allow_html=True)
 
 # ================== SIDEBAR ==================
@@ -206,3 +209,4 @@ st.sidebar.write("""
 
 st.sidebar.markdown("---")
 st.sidebar.write("👨‍💻 Developer: **Kumar Ketan**")
+
