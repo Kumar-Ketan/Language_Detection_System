@@ -72,15 +72,21 @@ Improve accuracy using LSTM/GRU
 Add batch prediction support
 Deploy on cloud (Heroku / Render / HuggingFace Spaces)
 
-👤 Author:
-Kumar Ketan
-Btech Graduate | Python | SQL | AI & ML Enthusiast
+---
 
-⭐ Acknowledgement
-Thanks to open-source datasets and libraries that made this project possible.
 
-🚀 Connect With Me
-📧 Email: kketan6204@gmail.com 
-🔗 LinkedIn: https://www.linkedin.com/in/kumar-ketan-5456b531b/
-🐙 GitHub: - https://github.com/Kumar-Ketan
-Thanks for checking out this project!
+
+## 👤 Author
+
+**Kumar Ketan**  
+
+B.Tech Graduate  
+Python | SQL | AI & ML Enthusiast  
+
+---
+
+## 🚀 Connect With Me
+
+- 📧 Email: kketan6204@gmail.com  
+- 🔗 LinkedIn: https://www.linkedin.com/in/kumar-ketan-5456b531b/  
+- 🐙 GitHub: https://github.com/Kumar-Ketan  
