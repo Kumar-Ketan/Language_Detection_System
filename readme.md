@@ -78,8 +78,8 @@ Deploy on cloud (Heroku / Render / HuggingFace Spaces)
 Pre-Final Year CS Student  
 Focus: Machine Learning, Deep Learning, DSA  
 
-- 🔗 LinkedIn:https://www.linkedin.com/in/kumar-ketan-5456b531b/   
-- 💻 GitHub:https://github.com/Kumar-Ketan 
+- 🔗 LinkedIn: https://www.linkedin.com/in/kumar-ketan-5456b531b/  
+- 💻 GitHub: https://github.com/Kumar-Ketan  
 
 
 
