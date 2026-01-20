@@ -1,88 +1,76 @@
-# 🌍 Language Detection using Recurrent Neural Network (RNN)
+# Language Detection using RNN
 
-This project implements a **Language Detection System** using a **Simple Recurrent Neural Network (RNN)** and deploys it as an interactive **Streamlit web application**.  
-Given an input sentence, the model predicts the **language of the text** along with a confidence score.
+## 📌 Project Description
 
-## 🚀 Project Overview
+This project is a **Language Detection System** built using a Recurrent Neural Network (RNN) model.  
+It takes an input sentence and predicts the language of the text with a confidence score.  
+The model is deployed using a **Streamlit web application** for easy interaction.
 
-- Built a sequence classification model using **Keras SimpleRNN**
-- Trained on tokenized and padded text sequences
-- Deployed using **Streamlit** for real-time predictions
-- Uses a saved trained model and tokenizer for inference
+This project demonstrates the complete machine learning workflow:
+- Data preprocessing  
+- Model training  
+- Model saving/loading  
+- Web-based inference using Streamlit  
 
-The application allows users to enter any sentence and instantly detect its language.
+## 🚀 Features
 
-## 🧠 Model Architecture
+- Detects language from user input text  
+- Displays predicted language and confidence percentage  
+- Simple and clean Streamlit UI  
+- Uses trained RNN model for prediction  
 
-- Embedding Layer  
-- Simple RNN Layer  
-- Dense Output Layer with Softmax  
-The model is trained to perform **multi-class classification** over supported languages.
+## 🛠️ Tech Stack
 
-## 🖥️ Web Application
+- **Programming Language:** Python 3.11  
+- **Deep Learning:** TensorFlow / Keras  
+- **Data Processing:** NumPy, Pandas  
+- **Web Framework:** Streamlit  
+- **Model Storage:** HDF5 (`.h5`), Pickle  
 
-The Streamlit app:
-- Takes user input text  
-- Converts it into sequences using a saved tokenizer  
-- Pads the sequence to fixed length  
-- Predicts language using the trained RNN model  
-- Displays:
-  - Predicted Language  
-  - Confidence Score  
-
-
-
-## 📁 Project Structure
-
+## 📂 Project Structure
+language_detection/
+│
 ├── app.py # Streamlit application
-├── saved_model/
-│ ├── simple_rnn_model.h5 # Trained RNN model
-│ └── tokenizer.pkl # Tokenizer + Label Encoder
-├── requirements.txt
-├── notebooks/
-│ └── training.ipynb # Model training notebook
+├── simple_rnn_model.h5 # Trained RNN model
+├── tokenizer.pkl # Saved tokenizer
+├── requirements.txt # Project dependencies
+├── eda.ipynb # Data analysis notebook
+├── prediction.ipynb # Testing notebook
+├── datasets/
+│ └── Language Detection.csv
 └── README.md
 
 
 ---
 
-## ⚙️ Tech Stack
-**Programming Language**
-- Python 3.10+
+## ⚙️ How to Run the Project Locally
 
-**Libraries & Frameworks**
-- TensorFlow / Keras  
-- NumPy  
-- Pandas  
-- Scikit-learn  
-- Matplotlib  
-- Seaborn  
-- Streamlit  
-- Pickle  
+### 1. Clone the Repository
 
-**Tools**
-- VS Code  
-- Git & GitHub  
+```bash
+git clone <https://github.com/Kumar-Ketan/Language_Detection_System>
+cd language_detection
+2. Create & Activate Conda Environment (Python 3.11)
+conda create -n venv311 python=3.11
+conda activate venv311
 
-📊 Example Output
-Input:
-यह एक अच्छा दिन है
-Output:
-Predicted Language: Hindi
-Confidence: 0.97
+3. Install Dependencies
+pip install -r requirements.txt
 
-🧩 Key Features
-End-to-end NLP pipeline
-Real-time inference
-Clean and simple UI
-Reusable trained artifacts
-Suitable for deployment demos
+4. Run the Streamlit App
+streamlit run app.py
 
-📌 Future Improvements
-Add LSTM / GRU comparison
-Support more languages
-Add confusion matrix and evaluation metrics
-Deploy on cloud (Streamlit Cloud / HuggingFace Spaces)
+🧪 Model Details
+Model Type: Recurrent Neural Network (RNN)
+Input: Raw text sentence
+Output: Predicted language + confidence score
+Trained on multilingual text dataset
+
+📈 Future Improvements
+Add more languages
+Improve accuracy using LSTM/GRU
+Add batch prediction support
+Deploy on cloud (Heroku / Render / HuggingFace Spaces)
 
 👨‍💻 Author:
 Kumar Ketan |PreFinal Year CS Student|Focus: Machine Learning, Deep Learning, DSA
