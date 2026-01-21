@@ -131,21 +131,33 @@ Language_Detection_System/
 ---  
 
 
-🚀 Features
-Supports multiple languages
-Real-time predictions
-Confidence bar visualization
-Clean and modern UI
+🚀 Features  
+
+Supports multiple languages  
+
+Real-time predictions  
+
+Confidence bar visualization  
+
+Clean and modern UI  
+
 Sidebar app information panel  
 
 
 
-🔮 Future Improvements
-Replace SimpleRNN with BiLSTM / GRU
-Improve performance on short texts
-Add top-3 predictions display
-Add more languages
-Dockerize the application
+
+🔮 Future Improvements  
+
+Replace SimpleRNN with BiLSTM / GRU  
+
+Improve performance on short texts  
+
+Add top-3 predictions display  
+
+Add more languages  
+
+Dockerize the application  
+
 
 ---
 
