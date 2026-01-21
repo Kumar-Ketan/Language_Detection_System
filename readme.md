@@ -1,139 +1,166 @@
-# 🌍 Language Detection Using RNN
 
-## 🔄 Workflow
-Data Collection  
-↓  
-Data Preprocessing  
-↓  
-Text Tokenization & Padding  
-↓  
-RNN Model Training  
-↓  
-Model Evaluation  
-↓  
-Model Saving  
-↓  
-Model Loading  
-↓  
-Streamlit Web Application  
+# 🌍 Language Detection System using RNN
+
+<p align="center">
+  <img src="images/app_english.png" width="800">
+</p>
+
+A **Deep Learning–based Language Detection System** built using **TensorFlow and Recurrent Neural Networks (RNN)**.  
+It predicts the language of a given sentence among multiple languages such as **English, Hindi, Kannada, French, Spanish, Tamil, Arabic**, etc.
+
+The project demonstrates a complete **NLP pipeline** — from text preprocessing and tokenization to model training, evaluation, and real-time deployment using **Streamlit**.
 
 ---
 
-## 📌 Project Overview
-This project focuses on **automatic language detection** from text using a  
-**Recurrent Neural Network (RNN)**.
+## 📌 Project Highlights
 
-The model is trained on a **multilingual language detection dataset** and deployed using  
-**Streamlit** to provide **real-time predictions and interactive visualization**.
-
-The application is divided into **three major components**:
-- **Model Training**
-- **Model Prediction**
-- **Web App Deployment using Streamlit**
+- 🌐 Multi-class language classification  
+- 🧠 RNN-based deep learning model  
+- 🔤 Tokenization & padding  
+- 🧹 Clean text preprocessing pipeline  
+- 🚀 Streamlit web app deployment  
+- 📊 Confidence score visualization  
+- 🎨 Custom dark-red tech UI theme  
 
 ---
 
-## 🧠 Problem Statement
-Language detection is a fundamental task in **Natural Language Processing (NLP)**.
+## 🧠 Model Architecture
 
-Accurate identification of language helps in:
-- Text classification systems
-- Multilingual applications
-- Translation systems
-- Content moderation
+**Architecture:**
 
----
+Embedding Layer
+→ SimpleRNN Layer
+→ Dropout Layer
+→ Dense (Softmax) Output Layer
 
-## ⚙️ Project Structure
-```
-LANGUAGE_DETECTION/
-│
-├── saved_model/
-│   ├── simple_rnn_model.h5
-│   └── tokenizer.pkl
-│
-├── datasets/
-│   └── Language Detection.csv
-│
-├── app.py
-├── eda.ipynb
-├── prediction.ipynb
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
 
----
+**Flow:**
 
-## 🧩 Project Components
 
-### 1️⃣ Model Training
-- Dataset used: `Language Detection.csv`
-- Text preprocessing:
-  - Text cleaning
-  - Tokenization
-  - Sequence padding
-- RNN model built using **TensorFlow / Keras**
-- Model trained to learn language patterns
-- Trained artifacts saved:
-  - `simple_rnn_model.h5`
-  - `tokenizer.pkl`
 
----
+Raw Text → Cleaning → Tokenization → Padding
+→ Embedding → RNN → Softmax → Predicted Language
 
-### 2️⃣ Model Prediction
-- Loads trained RNN model and tokenizer
-- Accepts raw text input
-- Predicts the **language of the given text**
-- Prediction workflow demonstrated in:
-  - `prediction.ipynb`
-
----
-
-### 3️⃣ Exploratory Data Analysis (EDA)
-- Language distribution analysis
-- Dataset insights and visualizations
-- Implemented in:
-  - `eda.ipynb`
-
----
-
-### 4️⃣ Streamlit Web Application
-- Interactive user interface
-- Real-time language detection
-- Clean and intuitive design
-- Main application file:
-  - `app.py`
 
 ---
 
 ## 🛠️ Tech Stack
 
-### 👨‍💻 Programming Language
-- Python
-
-### 📚 Libraries & Frameworks
-- NumPy  
-- Pandas  
-- TensorFlow / Keras  
-- Pickle  
-
-### 🌐 Deployment & Visualization
-- Streamlit
+| Category        | Tools / Libraries     |
+|-----------------|-----------------------|
+| Programming     | Python                |
+| Deep Learning   | TensorFlow, Keras     |
+| NLP             | Tokenizer, Padding   |
+| Model Type      | SimpleRNN             |
+| Frontend        | Streamlit             |
+| UI Styling      | Custom CSS            |
+| Deployment      | Streamlit Cloud       |
 
 ---
 
-## 📊 Dataset
-- **Language Detection Dataset**
-- Multilingual text data
+## 📂 Project Structure
+
+Language_Detection_System/
+│
+├── saved_model/
+│ └── simple_rnn_model.h5
+│
+├── datasets/
+│ └── Language Detection.csv
+│
+├── tokenizer.pkl
+├── eda.ipynb
+├── prediction.ipynb
+├── app.py
+├── requirements.txt
+└── readme.md
+
 
 ---
 
-## 🚀 Installation & Execution
+## ⚙️ How It Works
+
+1. User enters a sentence in the web app  
+2. Text is cleaned and preprocessed  
+3. Sentence is tokenized and padded  
+4. RNN model generates probability scores  
+5. Final language is predicted  
+6. Confidence score is displayed  
+
+---
+
+## 🖥️ Application Workflow
+
+### 🔹 GitHub Repository
+<p align="center">
+  <img src="images/github_repo.png" width="800">
+</p>
+
+---
+
+### 🔹 English Prediction
+<p align="center">
+  <img src="images/app_english.png" width="800">
+</p>
+
+---
+
+### 🔹 Hindi Prediction
+<p align="center">
+  <img src="images/app_hindi.png" width="800">
+</p>
+
+---
+
+### 🔹 Kannada Prediction
+<p align="center">
+  <img src="images/app_kannada.png" width="800">
+</p>
+
+---
+
+## 📊 Sample Predictions
+
+| Input Text              | Predicted Language | Confidence |
+|-------------------------|--------------------|------------|
+| this is beautiful day   | English            | 99.6%      |
+| यह एक अच्छा दिन है     | Hindi              | 46.8%      |
+| ನೀವು ಹೇಗಿದ್ದೀರಿ?        | Kannada            | 93.5%      |
+
+---
+
+## ▶️ Run Locally
+
 ```bash
+git clone https://github.com/Kumar-Ketan/Language_Detection_System.git
+cd Language_Detection_System
 pip install -r requirements.txt
 streamlit run app.py
-```
+
+
+🚀 Features
+
+Supports multiple languages
+
+Real-time predictions
+
+Confidence bar visualization
+
+Clean and modern UI
+
+Sidebar app information panel
+
+🔮 Future Improvements
+
+Replace SimpleRNN with BiLSTM / GRU
+
+Improve performance on short texts
+
+Add top-3 predictions display
+
+Add more languages
+
+Dockerize the application
 
 ---
 
