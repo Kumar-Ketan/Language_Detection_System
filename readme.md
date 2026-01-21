@@ -128,41 +128,23 @@ Language_Detection_System/
 | ನೀವು ಹೇಗಿದ್ದೀರಿ?        | Kannada            | 93.5%      |
 
 ---
-
-## ▶️ Run Locally
-
-```bash
-git clone https://github.com/Kumar-Ketan/Language_Detection_System.git
-cd Language_Detection_System
-pip install -r requirements.txt
-streamlit run app.py
-```
-
 ---  
 
 
 🚀 Features
-
 Supports multiple languages
-
 Real-time predictions
-
 Confidence bar visualization
-
 Clean and modern UI
+Sidebar app information panel  
 
-Sidebar app information panel
+
 
 🔮 Future Improvements
-
 Replace SimpleRNN with BiLSTM / GRU
-
 Improve performance on short texts
-
 Add top-3 predictions display
-
 Add more languages
-
 Dockerize the application
 
 ---
