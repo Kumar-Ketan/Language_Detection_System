@@ -152,11 +152,16 @@ def predict_language(text):
 
 st.markdown('<div class="card">', unsafe_allow_html=True)
 
-# Title with red dot after Language
+# Title with red dots after each word
 st.markdown(
-    '<div class="app-title">Language<span class="red-dot">.</span> Detection System</div>',
+    '<div class="app-title">'
+    'Language<span class="red-dot">.</span> '
+    'Detection<span class="red-dot">.</span> '
+    'System<span class="red-dot">.</span>'
+    '</div>',
     unsafe_allow_html=True
 )
+
 
 st.markdown(
     "<div class='subtitle'>Detect the language of any sentence using Deep Learning</div>",
