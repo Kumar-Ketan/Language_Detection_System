@@ -136,6 +136,9 @@ git clone https://github.com/Kumar-Ketan/Language_Detection_System.git
 cd Language_Detection_System
 pip install -r requirements.txt
 streamlit run app.py
+```
+
+---  
 
 
 🚀 Features
